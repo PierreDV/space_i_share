@@ -1,2 +1,26 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Sign Up</h1>
+<%= form_for @user do |frm| %>
+  <% if @user.errors.any? %>
+    <div>
+      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= frm.label :email %><br>
+    <%= frm.text_field :email %>
+  </div>
+  <div>
+    <%= frm.label :password %><br>
+    <%= frm.password_field :password %>
+  </div>
+  <div>
+    <%= frm.label :password_confirmation %><br>
+    <%= frm.password_field :password_confirmation %>
+  </div>
+  <div><%= frm.submit "Submit" %></div>
+<% end %>
