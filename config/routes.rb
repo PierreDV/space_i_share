@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :welcome
 
-  resources :users, only: [:new, :create]
+  resources :users
+
+  resources :squares
 
 end
