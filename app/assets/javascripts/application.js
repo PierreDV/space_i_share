@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-require './squares.js'
+
+  // require './squares.js'
