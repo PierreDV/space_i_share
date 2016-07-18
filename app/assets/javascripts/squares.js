@@ -1,15 +1,10 @@
-// $(document).ready(function(){
-//   var _squarePusher = squarePusher;
-//   var _randomColor = randomColor;
-// });
-
 function squarePusher(event) {
-  for(i=0; i<4; i++) {
-    var box1 = document.createElement('div');
-    box1.className = 'square';
-    box1.style.backgroundColor = randomColor();
-    event.target.appendChild(box1);
-  }
+  for(var i=0; i<4; i++) {
+    var box = document.createElement('div');
+    box.className = 'square';
+    box.style.backgroundColor = randomColor();
+    event.target.appendChild(box);
+  };
 };
 
 function randomColor() {
@@ -18,5 +13,4 @@ function randomColor() {
 
 function viewNodes() {
   container = document.getElementById("container");
-  console.log(container);
 };
