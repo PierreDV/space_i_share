@@ -17,7 +17,7 @@ class SquaresController < ApplicationController
   protected
 
   def user_params
-    params.require(:square).permit(:color, :parent_id, :user_id)
+    params.require(:square).permit(:color, :parent_div, :user_id)
   end
 
 end

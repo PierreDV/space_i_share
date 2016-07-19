@@ -7,4 +7,9 @@ module SquaresHelper
     return "#" + "%06x" % (rand * 0xffffff)
   end
 
+  def parseNodes(nodes)
+    nodes.each do |node|
+      print node
+    end
+  end
 end

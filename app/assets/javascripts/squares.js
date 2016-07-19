@@ -17,14 +17,9 @@ function squarePusher(event) {
   };
 };
 
-function viewNodes() {
-  container = document.getElementsByClassName("square");
-  console.log(container);
-};
-
 function squareToObject(node) {
   var div = {
-    "color" : node.id,
+    "color_id" : node.id,
     "parent_id" : node.parentElement.id
   };
   return div;
@@ -33,10 +28,29 @@ function squareToObject(node) {
 function storeSquares(node) {
   result = [];
   var container = squareToObject(node);
+
   result.push(container);
+
   for(var i=0; i<node.childNodes.length; i++) {
     var box = squareToObject(node.childNodes[i]);
     result.push(box);
   };
+
   return result;
 };
+
+function squaresToJSON(elements) {
+  const json = {
+    "squares" : storeSquares(elements)
+  };
+  return json
+};
+
+function sendJSON() {
+  const req = new XMLHttpRequest();
+  var payload = squaresToJSON(document.getElementById('container'));
+  req.open("POST", payload);
+  req.setRequestHeader("JSON", 'http://localhost:3000/squares/');
+  req.send(payload);
+  console.log(payload);
+}

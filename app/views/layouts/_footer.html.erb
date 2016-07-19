@@ -2,7 +2,7 @@
   <small>
     <% if current_user %>
       Signed in as <%= current_user.email %> (<%= link_to "Log out", session_path("current"), method: :delete %>)
-      <br><button id="save" onClick="logPage(body, '');">Save</button><button>Build</button>
+      <br><button id="save" onClick="sendJSON()">Save</button>
     <% else %>
       <%= link_to "Log In", new_session_path %> | <%= link_to "Sign Up", new_user_path %>
     <% end %>
