@@ -18,3 +18,10 @@ function viewNodes() {
   container = document.getElementsByClassName("square");
   console.log(container);
 };
+
+function logPage(node, prefix) {
+  console.log(prefix + node.nodeName);
+  for(var i=0; i<node.childNodes.length; i++) {
+    logPage(node.childNodes[i], prefix + '\t');
+  }
+}
