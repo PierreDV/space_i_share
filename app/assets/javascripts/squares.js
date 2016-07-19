@@ -5,7 +5,6 @@ function randomColor() {
 function divBuilder() {
   var div = document.createElement('div');
   div.style.backgroundColor = randomColor();
-  div.id = div.style.backgroundColor;
   div.className = 'square';
   return div;
 }
@@ -13,6 +12,7 @@ function divBuilder() {
 function squarePusher(event) {
   for(var i=0; i<4; i++) {
     var box = divBuilder();
+    box.id = i + box.style.backgroundColor;
     event.target.appendChild(box);
   };
 };
@@ -22,17 +22,21 @@ function viewNodes() {
   console.log(container);
 };
 
-function logPage(node, prefix) {
-  console.log(prefix + node.nodeName);
-  for(var i=0; i<node.childNodes.length; i++) {
-    logPage(node.childNodes[i], prefix + '\t');
-  }
-}
-
 function squareToObject(node) {
   var div = {
-    "id" : node.id,
+    "color" : node.id,
     "parent_id" : node.parentElement.id
   };
   return div;
-}
+};
+
+function storeSquares(node) {
+  result = [];
+  var container = squareToObject(node);
+  result.push(container);
+  for(var i=0; i<node.childNodes.length; i++) {
+    var box = squareToObject(node.childNodes[i]);
+    result.push(box);
+  };
+  return result;
+};

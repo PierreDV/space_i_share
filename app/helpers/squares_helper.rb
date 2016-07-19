@@ -7,10 +7,4 @@ module SquaresHelper
     return "#" + "%06x" % (rand * 0xffffff)
   end
 
-  # def squareView
-  #   page = Nokogiri::HTML(open("application.html"))
-  #   puts page.class
-  # end
-
-
 end
