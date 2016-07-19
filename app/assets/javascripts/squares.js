@@ -49,7 +49,7 @@ function squaresToJSON(elements) {
 function sendJSON() {
   const req = new XMLHttpRequest();
   var payload = squaresToJSON(document.getElementById('container'));
-  req.open("POST", payload);
+  req.open("post", payload);
   req.setRequestHeader("JSON", 'http://localhost:3000/squares/');
   req.send(payload);
   console.log(payload);

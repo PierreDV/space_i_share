@@ -18,6 +18,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    session[:user_id] = nil
+    redirect_to '/'
+  end
+
   protected
 
   def user_params
