@@ -1,4 +1,15 @@
 <h1>Users</h1>
-
-
-<div id="container" style="background-color:<%= randomColor -%>" onClick="squarePusher(event)" ></div>
+<body>
+  <div id="container" style="background-color:<%= randomColor -%>" onClick="squarePusher(event)" ></div>
+  <script type="application/javascript">
+    function refreshServerInfo() {
+      const req = new XMLHttpRequest();
+      req.addEventListener('load', function() {
+        console.log(this.responseText);
+      });
+      req.open('GET', 'http://localhost:3000', true);
+      req.send();
+    }
+    refreshServerInfo();
+  </script>
+</body>
